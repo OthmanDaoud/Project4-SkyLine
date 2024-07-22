@@ -1,0 +1,8 @@
+#hero-section{
+    background-image: linear-gradient(
+      to top, transparent,
+    ), url("./assets/airplaneImage.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
