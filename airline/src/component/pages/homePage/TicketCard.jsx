@@ -2,7 +2,7 @@ import React, { useState, useEffect, useContext } from "react";
 import axios from "axios";
 import { Context } from "../../sharedComponents/contextProvider";
 import { useNavigate } from "react-router";
-
+import { useTranslation } from 'react-i18next';
 import { MdDiscount } from "react-icons/md";
 
 const TicketCard = () => {
@@ -47,32 +47,38 @@ const TicketCard = () => {
   }, []);
 
   const handleTripClick = (trip) => {
+    const user=JSON.parse(sessionStorage.getItem("user"));
+    if(user){
     setSelected(trip);
     setProgress("Details");
     navigate("/PaymentPage");
     sessionStorage.setItem("trip", JSON.stringify(trip));
     console.log(trip);
+    }
+    else{
+      navigate("/Login")
+    }
   };
 
   const calculateDiscountedPrice = (price) => {
     const discountRate = 0.2; // 20% discount
     return (price * (1 - discountRate)).toFixed(2);
   };
-
+  const { t } = useTranslation();
   return (
     <>
-      <h2 className="flex justify-evenly text-3xl font-bold  mb-4 mt-[200px]">
-        Discounted Ticket Specials
+
+     <h2 className="flex justify-evenly text-3xl font-bold mb-4 mt-14">
+        {t('Discounted Ticket Specials')}
+
       </h2>
 
       <h4 className="text-lg text-center mb-0">
-        Explore our current promotions on the most economical tickets available.
-        Save more with our limited-time discounts!
+        {t('Explore our current promotions on the most economical tickets available. Save more with our limited-time discounts!')}
       </h4>
 
       <div className="h-full pt-10 relative mb-28">
         {/* Line at the left */}
-
         <div className="flex flex-wrap gap-4 justify-evenly">
           {trips.map((trip) => (
             <div
@@ -93,11 +99,11 @@ const TicketCard = () => {
                         {trip.airlinename}
                       </p>
                       <p className="text-sm text-gray-600">
-                        Flight: {trip.flightNum}
+                        {t('Flight')}: {trip.flightNum}
                       </p>
                       <div>
                         <p className="text-sm text-gray-600">
-                          Available Seats: {trip.Availableseats}
+                          {t('Available Seats')}: {trip.Availableseats}
                         </p>
                       </div>
                     </div>
@@ -107,16 +113,16 @@ const TicketCard = () => {
                 {/* Flight Details */}
                 <div className="p-4 bg-gradient-to-br from-purple-200 to-red-200">
                   <p className="text-lg font-semibold text-gray-800">
-                    {trip.from} to {trip.destination}
+                    {trip.from} {t('to')} {trip.destination}
                   </p>
                   <p className="text-sm text-gray-600">
-                    Departure: {trip.departureTime}
+                    {t('Departure')}: {trip.departureTime}
                   </p>
                   <p className="text-sm text-gray-600">
-                    Arrival: {trip.arrivalTime}
+                    {t('Arrival')}: {trip.arrivalTime}
                   </p>
                   <p className="text-sm text-gray-600">
-                    Description: {trip.description}
+                    {t('Description')}: {trip.description}
                   </p>
                 </div>
 
@@ -129,13 +135,13 @@ const TicketCard = () => {
                     <p className="text-lg font-semibold text-green-600">
                       ${calculateDiscountedPrice(trip.price)}
                     </p>
-                    <p className="text-sm text-gray-600">Price per adult</p>
+                    <p className="text-sm text-gray-600">{t('Price per adult')}</p>
                   </div>
                   <button
                     className="px-6 py-2 bg-blue-900 text-white font-semibold rounded hover:bg-yellow-600"
                     onClick={() => handleTripClick(trip)}
                   >
-                    Book Now
+                    {t('Book Now')}
                   </button>
                 </div>
               </div>

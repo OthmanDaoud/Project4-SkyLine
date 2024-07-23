@@ -10,13 +10,15 @@ export const FlightDetailsPage = () => {
   const [ticketType, setTicket] = useContext(Context).ticketType;
   const [isApplied, setApplied] = useContext(Context).isApplied;
   const [totalPrice, setTotalPrice] = useContext(Context).totalPrice;
-  const [discountAmount,setDiscount]=useContext(Context).discountAmount;
+  const [discountAmount, setDiscount] = useContext(Context).discountAmount;
+  const [quantity, setQuantity] = useContext(Context).quantity;
   function handleBook(type) {
     setProgress("Checkout");
     setTicket(type);
     setApplied(false);
     setDiscount(0);
-    
+    setQuantity(1);
+   
   }
   return (
     <>

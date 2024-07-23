@@ -10,7 +10,7 @@ export const PaypalButton = () => {
   const [user, setUser] = useContext(Context).user;
   const [ticketType, setTicketType] = useContext(Context).ticketType;
   const [totalPrice, setTotalPrice] = useContext(Context).totalPrice;
-  console.log(totalPrice);
+
   const initialOptions = {
     "client-id": "test",
     "enable-funding": "card",
@@ -21,32 +21,7 @@ export const PaypalButton = () => {
   return (
     <>
       <PayPalScriptProvider options={initialOptions}>
-        <PayPalButtons
-          style={{
-            shape: "rect",
-            layout: "vertical",
-          }}
-          createOrder={(data, actions) => {
-            return actions.order.create({
-              intent: "CAPTURE",
-              purchase_units: [
-                {
-                  amount: { currency_code: "USD", value: totalPrice },
-                },
-              ],
-            });
-          }}
-          onApprove={() => {
-            const ticket = new Ticket({
-              flightNumber: trip.flightNum,
-              arrivalTime: trip.arrivalTime,
-              boardingTime: trip.departureTime,
-              seatNumber: "A9",
-              ticketClass: ticketType,
-            });
-            reserveTicket(user, trip, ticket);
-          }}
-        />
+        
       </PayPalScriptProvider>
     </>
   );

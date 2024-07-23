@@ -5,6 +5,7 @@ import airplane from "./assets/Airplane.png";
 import { useContext } from "react";
 import { Context } from "../../sharedComponents/contextProvider";
 import { CheckoutPage } from "./checkoutPage/checkoutPage";
+import { ConfirmedPage } from "./confirmedPage/confirmedPage";
 
 export const PaymentContainer = () => {
   const [progress, setProgress] = useContext(Context).progress;
@@ -45,9 +46,9 @@ export const PaymentContainer = () => {
               }}
             />
           </div>
-          <div className="flex justify-between items-center w-[90rem]">
+          <div className="flex justify-between items-center w-[90rem] font-extrabold ">
             <h1
-              className="text-[1.5rem]  "
+              className="text-[1.5rem] drop-shadow-[0_35px_35px_rgba(0,0,0,0.25)] "
               style={{
                 color: progress == "Details" ? "red" : "black",
                 transition: "all 3s",
@@ -80,7 +81,7 @@ export const PaymentContainer = () => {
         ) : progress == "Checkout" ? (
           <CheckoutPage />
         ) : (
-          <></>
+          <ConfirmedPage />
         )}
       </div>
     </div>

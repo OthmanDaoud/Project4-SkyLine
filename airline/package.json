@@ -10,7 +10,6 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "swiper": "^8.4.5",
     "@heroicons/react": "^2.1.5",
     "@material-tailwind/react": "^2.1.9",
     "@paypal/react-paypal-js": "^8.5.0",
@@ -20,11 +19,14 @@
     "firebase": "^10.12.4",
     "flowbite": "^2.4.1",
     "flowbite-react": "^0.10.1",
+    "i18next": "^23.12.2",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
-    "react-toastify": "^10.0.5",
+    "react-i18next": "^15.0.0",
     "react-router": "^6.25.1",
-    "react-router-dom": "^6.25.1"
+    "react-router-dom": "^6.25.1",
+    "react-toastify": "^10.0.5",
+    "swiper": "^8.4.5"
   },
   "devDependencies": {
     "@types/react": "^18.3.3",

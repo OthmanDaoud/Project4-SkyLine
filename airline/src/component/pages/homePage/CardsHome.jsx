@@ -1,6 +1,7 @@
 import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import SwiperCore, { Autoplay } from "swiper";
+import { useTranslation } from "react-i18next";
 
 // Import Swiper styles
 import "swiper/css";
@@ -14,19 +15,23 @@ import { EffectCoverflow, Navigation, Pagination } from "swiper";
 SwiperCore.use([Autoplay]);
 
 export default function App() {
+  const { t } = useTranslation(); 
+
   const handleSlideChange = (swiper) => {
     console.log('Current slide index:', swiper.activeIndex);
   };
 
   return (
     <>
-      <section className="bg-gradient-to-br from-purple-200 to-red-200  mt-[0%] mb-[8%] p-[90px]">
-      <div >
-        <div className="mt-5 sm:mt-40 text-center mb-6 sm:mb-10">
-          <h1 className="text-3xl sm:text-4xl font-bold p-10">
-            Explore the Cheapiest flights in SkyLine
-          </h1>
-        </div>
+
+      <section className="bg-gradient-to-br from-purple-200 to-red-200 p-20">
+        <div>
+          <div className="mt-5 sm:mt-40 text-center mb-6 sm:mb-10">
+            <h1 className="text-3xl sm:text-4xl font-bold">
+              {t('Explore the Cheapest flights in SkyLine')}
+            </h1>
+          </div>
+
         </div>
         <div className="main">
           <Swiper
@@ -65,7 +70,7 @@ export default function App() {
               style={{
                 height: "300px",
                 width: "600px",
-                backgroundImage: `url("https://upload.wikimedia.org/wikipedia/commons/thumb/2/22/London_Eye_-_tunliweb.no.JPG/1200px-London_Eye_-_tunliweb.no.JPG")`,
+                backgroundImage: "url('https://upload.wikimedia.org/wikipedia/commons/thumb/2/22/London_Eye_-_tunliweb.no.JPG/1200px-London_Eye_-_tunliweb.no.JPG')",
                 backgroundSize: "cover",
                 backgroundPosition: "center",
                 backgroundRepeat: "no-repeat",
@@ -94,7 +99,7 @@ export default function App() {
                     margin: "0",
                   }}
                 >
-                  United Kingdom
+                  {t('United Kingdom')}
                 </h6>
                 <p
                   style={{
@@ -105,7 +110,7 @@ export default function App() {
                     fontWeight: "bold",
                   }}
                 >
-                  Round-trip from <span style={{ fontSize: "1.5rem" , color: "green" }}>US$123</span>
+                  {t('Round-trip from')} <span style={{ fontSize: "1.5rem", color: "green" }}>US$123</span>
                 </p>
               </div>
             </SwiperSlide>
@@ -113,7 +118,7 @@ export default function App() {
               style={{
                 height: "300px",
                 width: "600px",
-                backgroundImage: `url("https://offloadmedia.feverup.com/parissecret.com/wp-content/uploads/2023/06/16120757/COUV-ARTICLES-1920x1080-2023-06-08T171325.416-1024x576.jpg")`,
+                backgroundImage: "url('https://offloadmedia.feverup.com/parissecret.com/wp-content/uploads/2023/06/16120757/COUV-ARTICLES-1920x1080-2023-06-08T171325.416-1024x576.jpg')",
                 backgroundSize: "cover",
                 backgroundPosition: "center",
                 backgroundRepeat: "no-repeat",
@@ -142,7 +147,7 @@ export default function App() {
                     margin: "0",
                   }}
                 >
-                  France
+                  {t('France')}
                 </h6>
                 <p
                   style={{
@@ -153,7 +158,7 @@ export default function App() {
                     fontWeight: "bold",
                   }}
                 >
-                  Round-trip from <span style={{ fontSize: "1.5rem", color: "#ffcc00" }}>US$128</span>
+                  {t('Round-trip from')} <span style={{ fontSize: "1.5rem", color: "#ffcc00" }}>US$128</span>
                 </p>
               </div>
             </SwiperSlide>
@@ -161,7 +166,7 @@ export default function App() {
               style={{
                 height: "300px",
                 width: "600px",
-                backgroundImage: `url("https://platinumlist.net/guide/wp-content/uploads/2022/12/shutterstock_1196821240-2.webp")`,
+                backgroundImage: "url('https://platinumlist.net/guide/wp-content/uploads/2022/12/shutterstock_1196821240-2.webp')",
                 backgroundSize: "cover",
                 backgroundPosition: "center",
                 backgroundRepeat: "no-repeat",
@@ -190,7 +195,7 @@ export default function App() {
                     margin: "0",
                   }}
                 >
-                  United Arab Emirates
+                  {t('United Arab Emirates')}
                 </h6>
                 <p
                   style={{
@@ -201,7 +206,7 @@ export default function App() {
                     fontWeight: "bold",
                   }}
                 >
-                  Round-trip from <span style={{ fontSize: "1.5rem" , color: "#ffcc00"}}>US$137</span>
+                  {t('Round-trip from')} <span style={{ fontSize: "1.5rem", color: "#ffcc00" }}>US$137</span>
                 </p>
               </div>
             </SwiperSlide>

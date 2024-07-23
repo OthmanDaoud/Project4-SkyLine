@@ -30,9 +30,8 @@ function Register() {
       const currentUser = auth.currentUser;
 
       if (currentUser) {
-
-        sessionStorage.setItem('userId', currentUser.uid);
-        sessionStorage.setItem('userEmail', currentUser.email);
+        sessionStorage.setItem("userId", currentUser.uid);
+        sessionStorage.setItem("userEmail", currentUser.email);
         const copoun = new Copoun({
           copounID: 0,
           description: "Welcoming copoun",
@@ -45,7 +44,7 @@ function Register() {
           userID: currentUser.uid,
           email: currentUser.email,
           fullName: `${fname} ${lname}`,
-          tickets: [],
+          tickets: "",
           phoneNumber: phoneNumber,
           copouns: [copoun],
         });

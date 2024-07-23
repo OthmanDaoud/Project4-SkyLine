@@ -78,9 +78,16 @@ const TicketsCatalogue = () => {
 
   // sessionStorage
   const saveData = (ticket) => {
-    setTrip(ticket);
-    setProgress("Details");
-    navigate("/PaymentPage");
+    const user = JSON.parse(sessionStorage.getItem("user"));
+    if (user) {
+      setTrip(ticket);
+      setProgress("Details");
+      navigate("/PaymentPage");
+      sessionStorage.setItem("trip", JSON.stringify(trip));
+      console.log(trip);
+    } else {
+      navigate("/Login");
+    }
   };
 
   return (

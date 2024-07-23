@@ -2,6 +2,10 @@ module.exports = {
   content: ["./index.html", "./src/**/*.{js,jsx,ts,tsx}"],
   theme: {
     extend: {
+      fontFamily: {
+      cairo: ['Cairo', 'sans-serif'],
+      amiri: ['Amiri', 'serif'],
+    },
       colors: {
         lightBlue: "#C2CFF0",
         purplrM : "#B48AAD",
@@ -11,6 +15,7 @@ module.exports = {
         Darkpurple : "#4B2E83"
 
       },
+      
     },
   },
   plugins: [],

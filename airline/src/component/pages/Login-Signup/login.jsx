@@ -4,6 +4,7 @@ import { auth } from "../../firebase/firebase-config";
 
 import { toast } from "react-toastify";
 import SignInwithGoogle from "./signInWIthGoogle";
+import { Link } from "react-router-dom";
 
 import { getUserData } from "./Controllers/getUserData";
 import formBackground from "./assets/bglsignup.png";
@@ -25,12 +26,10 @@ function Login() {
       let user = await getUserData(currentUser.uid);
 
       if (user) {
+        sessionStorage.setItem("user", JSON.stringify(user));
+        sessionStorage.setItem("userId", currentUser.uid);
+        sessionStorage.setItem("userEmail", currentUser.email);
 
-        
-        sessionStorage.setItem('user', JSON.stringify(user));
-        sessionStorage.setItem('userId', currentUser.uid);
-        sessionStorage.setItem('userEmail', currentUser.email);
-        
         toast.success("User logged in Successfully", {
           position: "top-center",
         });
@@ -104,7 +103,9 @@ function Login() {
 
           <p className="text-sm text-gray-600 text-right">
             New user{" "}
-            <a className="text-blue-600 hover:underline">Register Here</a>
+            <Link to={"/Signup"} className="text-blue-600 hover:underline">
+              Register Here
+            </Link>
           </p>
           <SignInwithGoogle />
         </form>

@@ -1,4 +1,5 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 
 const logoUrls = [
     "https://assets.wego.com/image/upload/h_64,c_fit,f_auto,fl_lossy,q_auto:low/v20240722/flights/airlines_rectangular/RJ.png",
@@ -12,9 +13,12 @@ const logoUrls = [
 ];
 
 const Sponsors = () => {
+    const { t } = useTranslation();
     return (
-        <section style={{ padding: '3rem 0', backgroundColor: 'white', overflow: 'hidden', textAlign: 'center' , marginTop:'200px' , marginBottom:"200px"}}>
-            <h2 style={{ marginBottom: '2rem', fontSize: '1.2rem', fontWeight: 'semibold', color:'black' }}>Popular Airlines in Middle East </h2>
+
+        <section style={{ padding: '3rem 0', backgroundColor: 'white', overflow: 'hidden', textAlign: 'center' }}>
+            <h2 style={{ marginBottom: '2rem', fontSize: '1.2rem', fontWeight: 'bold', color:'black' }}>{t('Popular Airlines in Middle East')} </h2>
+
             <div style={{ position: 'relative', width: '100%', height: '7rem' }}>
                 <div style={{
                     display: 'flex',

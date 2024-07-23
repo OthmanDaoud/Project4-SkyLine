@@ -1,6 +1,8 @@
 import React from "react";
+import { useTranslation } from 'react-i18next';
 
 const Features = () => {
+  const { t } = useTranslation();
   return (
     <section className="py-6 pt-40 px-12 mt-[8%] mb-[8%]">
       <div className="container px-6 mt-12 mb-8 ">
@@ -25,11 +27,10 @@ const Features = () => {
               </div>
             </div>
             <h3 className="text-xl font-bold text-gray-800 mb-2">
-              Competitive Prices
+              {t("Competitive Prices")}
             </h3>
             <p className="text-gray-600">
-              Enjoy the best deals and save on your flights with our unbeatable
-              prices.
+            {t("Enjoy the best deals and save on your flights with our unbeatable prices.")} 
             </p>
           </div>
           <div className="p-6 bg-gradient-to-br from-purple-200 to-red-200 rounded-lg shadow-lg transform hover:scale-110 hover:shadow-xl transition-transform duration-300">
@@ -52,11 +53,10 @@ const Features = () => {
               </div>
             </div>
             <h3 className="text-xl font-bold text-gray-800 mb-2">
-              Classy Treatment
+            {t("Classy Treatment")}
             </h3>
             <p className="text-gray-600">
-              Experience top-notch service and luxury from the moment you book
-              with us.
+            {t("Enjoy exceptional service and luxury from the start of your journey with us.")}
             </p>
           </div>
           <div className="p-6 bg-gradient-to-br from-purple-200 to-red-200 rounded-lg shadow-lg transform hover:scale-110 hover:shadow-xl transition-transform duration-300">
@@ -79,11 +79,10 @@ const Features = () => {
               </div>
             </div>
             <h3 className="text-xl font-bold text-gray-800 mb-2">
-              Your Time is Priority
+            {t("Your Time is Priority")}
             </h3>
             <p className="text-gray-600">
-              We value your time and ensure prompt and efficient service every
-              step of the way.
+            {t("We value your time and ensure prompt and efficient service every step of the way.")}  
             </p>
           </div>
         </div>

@@ -26,7 +26,7 @@ const FooterLinks = [
   },
 ];
 
-const Footer = () => {
+export const Footer = () => {
   return (
     <div className="text-black bg-gradient-to-r from-purple-300 to-pink-200">
       <div className="container mx-auto px-4">
@@ -115,6 +115,6 @@ const Footer = () => {
       </div>
     </div>
   );
-}
-export default Footer ;
+};
 
+export default Footer;
